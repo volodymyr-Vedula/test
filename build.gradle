@@ -1,0 +1,28 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.2.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.14'
+    compile group: 'org.flywaydb', name: 'flyway-core', version: '6.5.2'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testCompile group: 'org.mockito', name: 'mockito-junit-jupiter', version: '3.4.4'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
